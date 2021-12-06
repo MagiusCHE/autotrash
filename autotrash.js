@@ -4,7 +4,7 @@ const execSync = require('child_process').execSync;
 
 
 let root
-const deleted = {
+const deletedCount = {
     files: 0,
     dirs:0
 }
@@ -62,7 +62,7 @@ module.exports = async function(opts) {
             }
         }
     }
-    console.log(`Delete % files and % directories`, deleted.files, deleted.dirs)
+    console.log(`Delete %o files and %o directories`, deletedCount.files, deletedCount.dirs)
     //console.log(files)
     //console.log('days %o', days)
 }
@@ -95,7 +95,7 @@ const purgeDir = async (all, src) => {
         }
         console.log(`%o dir deleted.`, src)        
         delete all[src]
-        deleted.dirs++
+        deletedCount.dirs++
         rawDeleteFolder(src)
         return true //deleted
     }
@@ -117,7 +117,7 @@ const purgeFile = async (all, src) => {
 
     delete all[src]
     console.log(`%o deleted. Parent: %o`, src, all[mdir]?.files)
-    deleted.files++
+    deletedCount.files++
     rawDeleteFile(src)
 }
 
