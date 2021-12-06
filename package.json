@@ -6,7 +6,7 @@
   "private": false,
   "scripts": {
     "start": "node index.js",
-    "test": "yarn start -d 10 -s ~/Temp/Screenshots"
+    "test": "yarn start -d 10 -s ~/Temp/"
   },
   "dependencies": {
     "command-line-args": "^5.2.0",
